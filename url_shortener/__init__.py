@@ -10,4 +10,9 @@ def create_app(config_class=Config):
     db.init_app(app)
 
     with app.app_context():
+        from .shortener.routes import shortener
+        from .errors.handlers import errors
+        app.register_blueprint(shortener)
+        app.register_blueprint(errors)
+
         return app
