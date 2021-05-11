@@ -1,4 +1,4 @@
-from flask import Blueprint, redirect, jsonify, request
+from flask import Blueprint, redirect, jsonify, request, abort
 from pydantic import ValidationError
 from ..utils import json_body_required
 from .dto import CreateNewLinkDto
@@ -26,4 +26,4 @@ def redirect_to_long_url(short_url):
     if original_url:
         return redirect(original_url), 200
 
-    return jsonify(msg='No such URL')
+    abort(404)

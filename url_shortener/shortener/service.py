@@ -30,7 +30,3 @@ def view_original_url(short_url: str) -> Union[str, None]:
 
     if datetime.now() < url.valid_until:
         return url.original_url
-
-    else:
-        db.session.delete(url)
-        db.session.commit()
