@@ -6,8 +6,8 @@ from url_shortener.models import db, Url
 
 if __name__ == '__main__':
     app = create_app()
-    logger.add('deletion.log',
-               format="{time} {level} {message}", level="INFO", rotation="5 MB", compression="zip")
+    logger.add('deletion.log', format="{time} {level} {message}", level="INFO", rotation="5 MB", compression="zip")
+
     with app.app_context():
         urls = Url.query.filter(Url.valid_until < datetime.now()).all()
         logger.info('Starting a cleanup session: ')
