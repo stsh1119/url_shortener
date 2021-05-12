@@ -4,7 +4,7 @@ from pydantic import BaseModel, Field, validator
 
 class CreateNewLinkDto(BaseModel):
     original_url: str = Field(min_length=10, max_length=200)
-    days_to_expire: Optional[int]
+    days_to_expire: Optional[int] = 90
 
     @validator('days_to_expire')
     def should_be_between_1_and_365(cls, v):
