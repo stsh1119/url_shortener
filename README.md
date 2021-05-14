@@ -1,6 +1,6 @@
 # url_shortener 
 
-The API can shorten any url(up to 200 symbols) and give you a short version of it, that can later be used to access the original URL.
+The API can shorten any url(up to 2000 symbols) and give you a short version of it, that can later be used to access the original URL.
 
 Created with Flask
 
