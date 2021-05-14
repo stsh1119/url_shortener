@@ -14,6 +14,6 @@ class CreateNewLinkDto(BaseModel):
 
     @validator('original_url')
     def should_start_with_http(cls, v):
-        if v.startswith(('http://', 'https://')):
+        if v.startswith(('http://', 'https://', 'ftp://')):
             return v
         raise ValueError('links should start with http/https://')
