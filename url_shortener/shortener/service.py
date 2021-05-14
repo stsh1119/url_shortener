@@ -6,11 +6,6 @@ from .dto import CreateNewLinkDto
 
 
 def create_short_url(new_link: CreateNewLinkDto) -> str:
-    is_already_present = Url.query.filter_by(original_url=new_link.original_url).first()
-
-    if is_already_present:
-        return is_already_present.short_url
-
     url = Url(
         original_url=new_link.original_url,
         short_url=generate_short_string(new_link.original_url),
